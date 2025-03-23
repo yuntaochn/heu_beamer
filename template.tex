@@ -1,0 +1,141 @@
+\documentclass[aspectratio=169]{beamer}%页面比例16:9
+\setbeamercovered{dynamic}%半透明显示
+\setbeamertemplate{navigation symbols}{}
+\usepackage[backend=bibtex,sorting=none,style=numeric]{biblatex}%设置引用
+\addbibresource{ref.bib} %bib数据文件位置
+\usepackage{dashrule}
+\definecolor{NJUPurple}{rgb}{0.28235, 0.28235, 0.62745}%设置主题颜色
+\colorlet{LightNJUPurple}{white!60!NJUPurple}
+\colorlet{SuperLightNJUPurple}{white!90!NJUPurple}
+\usecolortheme[named=NJUPurple]{structure}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{subfigure}
+\usepackage{subfiles}
+\usepackage{url}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{xcolor,colortbl}
+\usepackage[AutoFakeBold, AutoFakeSlant]{xeCJK}
+\usefonttheme[onlymath]{serif}
+\renewcommand{\today}{\number\year .\number\month .\number\day }
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamercolor{block title}{fg=white,bg=NJUPurple}
+\setbeamercolor{block body}{fg=black,bg=white}
+\setbeamerfont{title}{shape=\bfseries,size=\Large}
+\setbeamerfont{author}{shape=\bfseries}
+
+\setbeamercolor{bibliography item}{fg = NJUPurple}
+\setbeamercolor{bibliography entry title}{fg = black}
+\setbeamercolor{bibliography entry author}{fg = black}
+\setbeamercolor{bibliography entry location}{fg = black}
+\setbeamercolor{bibliography entry note}{fg = black}
+
+\makeatletter
+\def\@makefnmark{\hbox{{{\usebeamercolor[fg]{footnote mark}\usebeamerfont*{footnote mark} [\@thefnmark]}}}}
+\def\@makefntext#1{%
+	\def\insertfootnotetext{ #1}%
+	\def\insertfootnotemark{{\hbox{{{\usebeamercolor[NJUPurple]{footnote mark}\usebeamerfont*{footnote mark} [\@thefnmark]}}}}}%
+	\usebeamertemplate***{footnote}}    
+\makeatother
+\renewcommand\footnoterule{\color{NJUPurple}\hdashrule{14cm}{1pt}{1.5mm 2pt} }
+\setbeamertemplate{footnote}{
+	\vspace{0.05cm}
+	\scriptsize\insertfootnotemark\vspace{-0.38cm}\quad\ \insertfootnotetext\vspace{0.008cm}
+}
+
+\setbeamertemplate{title page}{%
+	\vbox{}
+	\vfill
+	\begingroup
+	\centering
+	\begin{beamercolorbox}[sep=8pt,center]{title}
+		\usebeamerfont{title}\inserttitle\par%
+		\ifx\insertsubtitle\@empty%
+		\else%
+		\vskip0.25em%
+		{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+		\fi%     
+	\end{beamercolorbox}%
+	
+	\vskip-0.2cm%<- changed
+	\begin{beamercolorbox}[sep=8pt,center]{institute}
+		\usebeamerfont{institute}\insertinstitute
+	\end{beamercolorbox}
+	
+	\vskip-0.2cm%<- changed
+	\begin{beamercolorbox}[sep=8pt,center]{author}
+		\usebeamerfont{author}\insertauthor
+	\end{beamercolorbox}
+	
+	\vskip-0.2cm%<- changed
+	\begin{beamercolorbox}[sep=8pt,center]{date}
+		\usebeamerfont{date}\insertdate
+	\end{beamercolorbox}%
+	\vskip0.5cm%<- changed
+	
+	\endgroup
+	%  \vfill%<- removed
+}
+\makeatother
+
+% shape, colour of item, nested item bullets in itemize only
+\setbeamertemplate{itemize item}[circle] \setbeamercolor{itemize item}{fg=NJUPurple}
+\setbeamertemplate{itemize subitem}[circle] \setbeamercolor{itemize subitem}{fg=NJUPurple}
+\setbeamertemplate{itemize subsubitem}[circle] \setbeamercolor{itemize subsubitem}{fg=NJUPurple}
+
+\setbeamertemplate{itemize/enumerate body begin}{\normalsize}
+\setbeamertemplate{itemize/enumerate subbody begin}{\normalsize}
+\setbeamertemplate{itemize/enumerate subsubbody begin}{\normalsize}
+
+\setbeamertemplate{frametitle}
+{\leavevmode%
+	\begin{beamercolorbox}[wd=\paperwidth, ht=3.8ex, dp=0ex, leftskip = 1.9ex]{titlelike}%
+		\usebeamerfont{frametitle}\insertframetitle\hspace{0.2cm}\usebeamerfont{framesubtitle}\insertframesubtitle%
+	\end{beamercolorbox}%
+}
+\setbeamertemplate{section in toc}[circle] % 目录前设置序号 
+\setbeamerfont{frametitle}{series=\bfseries}% 标题加粗
+\setbeamerfont{framesubtitle}{size=\fontsize{11}{11},series=\bfseries}
+\usepackage{latexsym,amsmath,xcolor,multicol,booktabs,calligra}
+\usepackage{graphicx,pstricks,listings,stackengine}
+\usepackage{wasysym}
+
+%Contents before every section's starting slide
+\AtBeginSection[]
+{
+	\begin{frame}
+		\frametitle{Outline}
+		\tableofcontents[
+		currentsection,
+		currentsubsection,
+		subsectionstyle=show/show/hide,
+		sectionstyle=show/shaded
+		]
+	\end{frame}
+}
+
+% 首页修改
+\title{组会报告}
+\subtitle{开题报告}
+\institute{哈尔滨工程大学}
+\author{汇报人：张云涛}
+\date{\today}
+
+% 脚注修改
+\defbeamertemplate{footline}{NGEGFootlineTemplate}{%
+	\leavevmode% 离开vmode，也就是离开竖直模式，进入水平模式
+	\begin{beamercolorbox}[wd=0.975\paperwidth,ht=2.25ex,dp=3ex,right]{title in head/foot}%
+		\ifnum \the\value{page}>1 \text{\href{http://www.lamda.nju.edu.cn}{http://www.lamda.nju.edu.cn}}\fi
+	\end{beamercolorbox}%
+	%	\vskip0pt%
+}
+\setbeamertemplate{footline}[NGEGFootlineTemplate]
+
+\begin{document}
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{imgs/cover.pdf}}
+	\frame{\titlepage}
+
+\end{document}

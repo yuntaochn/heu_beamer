@@ -11,6 +11,14 @@
 \usepackage[absolute,overlay]{textpos} % 避开，防止重合区域
 \usepackage{tikz}
 
+\definecolor{NJUPurple}{rgb}{0.28235, 0.28235, 0.62745}%设置主题颜色
+\colorlet{LightNJUPurple}{white!60!NJUPurple}
+\colorlet{SuperLightNJUPurple}{white!90!NJUPurple}
+% 定义哈尔滨工程大学的主题色
+\definecolor{HEUred}{RGB}{220, 20, 60}   % 红色
+\definecolor{HEUblue}{RGB}{0, 102, 204}  % 蓝色
+\definecolor{HEUwhite}{RGB}{255, 255, 255} % 白色
+
 \mode<presentation>{
 	\usetheme{Madrid}
 }
@@ -52,5 +60,14 @@
 	\frametitle{仿真实验}
 	
 \end{frame}
+
+
+% 谢辞部分
+\section*{Acknowledgement}  
+\begin{frame}
+	\frametitle{Acknowledgement}
+	\textcolor{NJUPurple}{\Huge{\centerline{Thank you!}}}
+\end{frame}
+
 
 \end{document}
